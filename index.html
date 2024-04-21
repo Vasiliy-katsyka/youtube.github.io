@@ -1,208 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Simulator</title>
-    <style>
-        /* YouTube-like Styling */
-        #app {
-  font-family: 'Roboto', sans-serif; /* Use a font similar to YouTube */
-}
-
-#videosContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.video {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  overflow: hidden; /* Prevent content from overflowing */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.video:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.video img { /* Style for video thumbnail */
-  width: 100%;
-  height: auto;
-}
-
-.video .info {
-  padding: 10px;
-  background: linear-gradient(to right, #f9f9f9, #f5f5f5); /* Subtle background gradient */
-}
-
-.video .title {
-  font-weight: 500;
-  margin-bottom: 5px;
-  color: #333; /* Darker text for title */
-}
-
-.video .stats {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #999; /* Lighter gray text for stats */
-}
-
-.video .stats .views {
-  margin-right: 15px;
-}
-
-/* Emojis */
-.emoji {
-  width: 1em;
-  height: 1em;
-  margin: 0 2px;
-  vertical-align: -0.1em;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Play button */
-.video .play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  color: #fff; /* White icon */
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.video:hover .play-button {
-  opacity: 1; /* Show on hover */
-}
-
-.play-button:hover {
-  background-color: rgba(0, 0, 0, 0.8); /* Darken on hover */
-}
-
-    </style>
+    <title>KviGPT 100B Investment</title>
+    <style>body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: radial-gradient(circle at top center, #000033 0%, #000000 70%);
+        color: white;
+        text-align: center;
+    }
+    
+    .header {
+        margin-bottom: 20px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    
+    .content p {
+        margin-bottom: 20px;
+    }
+    
+    .invest-button {
+        background-color: rgba(0, 0, 255, 0.5);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .invest-button:hover {
+        background-color: rgba(0, 0, 255, 0.8);
+    }</style>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>Telegram.WebApp.ready();</script>
 </head>
 <body>
-    <div id="app">
-        <h1>YouTube Simulator <picture><source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f601/512.webp" type="image/webp"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f601/512.gif" alt="😁" width="32" height="32"></picture></h1>
-        <form id="uploadForm">
-            <input type="text" id="videoName" placeholder="Video Name">
-            <input type="text" id="videoDesc" placeholder="Video Description">
-            <button type="submit">Upload Video <picture>
-                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f5a4/512.webp" type="image/webp">
-                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f5a4/512.gif" alt="🖤" width="32" height="32">
-              </picture></button>
-        </form>
-        <div id="videosContainer"></div>
+    <div class="container">
+        <div class="header">
+            <h1>Invest in KviGPT 100B</h1>
+            <p>The future of AI is here. Invest in the next generation of powerful AI tools.</p>
+        </div>
+        <div class="content">
+            <p>Invest your TON and be a part of the AI revolution.</p>
+            <button class="invest-button" onclick="Telegram.WebApp.openLink('https://t.me/xrocket?start=inv_zMIzD0mzKMc1tsw')">Invest Now</button>
+        </div>
     </div>
-    <script>// Initialize variables
-        const videosContainer = document.getElementById('videosContainer');
-        const uploadForm = document.getElementById('uploadForm');
-        let videos = [];
-        
-        // Function to create a new video object
-        function createVideo(name, description) {
-            return {
-                name,
-                description,
-                views: 0,
-                likes: 0,
-                comments: 0,
-                subscribers: 0
-            };
-        }
-        
-        // Function to update video stats every 10 seconds
-        function updateStats() {
-            videos.forEach(video => {
-                video.views += Math.floor(Math.random() * 5) + 5 * (video.views - video.views % 10); // Random view increment
-                video.likes += Math.floor(video.views * 0.01);
-                video.comments += Math.floor(video.views * 0.002);
-                if (video.views % 100 === 0) {
-                    video.subscribers++;
-                }
-            });
-            renderVideos();
-        }
-        
-        // Function to render videos on the page
-        function renderVideos() {
-            videosContainer.innerHTML = ''; // Clear container
-        
-            videos.forEach(video => {
-                const videoElement = document.createElement('div');
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Delete';
-                deleteButton.classList.add('deleteButton');
-                deleteButton.addEventListener('click', () => deleteVideo(index)); // Pass index
-                videoElement.appendChild(deleteButton);
-                videoElement.classList.add('video');
-                videoElement.innerHTML = `
-                    <h3>${video.name}</h3>
-                    <p>${video.description}</p>
-                    <p>Views: ${video.views}</p>
-                    <p>Likes: ${video.likes}</p>
-                    <p>Comments: ${video.comments}</p>
-                    <p>Subscribers: ${video.subscribers}</p>
-                `;
-                videosContainer.appendChild(videoElement);
-            });
-        }
-        function deleteVideo(index) {
-            videos.splice(index, 1); // Remove video from array
-            saveVideos(); // Update cloud storage
-            renderVideos(); // Re-render the video list
-        }
-        // Function to load videos from cloud storage (example using localStorage for simplicity)
-        function loadVideos() {
-            const storedVideos = localStorage.getItem('videos');
-            if (storedVideos) {
-                videos = JSON.parse(storedVideos);
-                renderVideos();
-            }
-        }
-        
-        // Function to save videos to cloud storage (example using localStorage for simplicity)
-        function saveVideos() {
-            localStorage.setItem('videos', JSON.stringify(videos));
-        }
-        
-        // Event listener for uploading a new video
-        uploadForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const name = document.getElementById('videoName').value;
-            const description = document.getElementById('videoDesc').value;
-            const newVideo = createVideo(name, description);
-            videos.push(newVideo);
-            saveVideos();
-            renderVideos();
-            uploadForm.reset(); // Clear the form
-        });
-        
-        // Load videos and start updating stats
-        loadVideos();
-        setInterval(updateStats, 10000); // Update every 10 seconds
-        
-        Telegram.WebApp.onEvent('themeChanged', function() {
-            if (Telegram.WebApp.colorScheme === 'dark') {
-                document.body.classList.add('dark');
-            } else {
-                document.body.classList.remove('dark');
-            }
-        });
-        </script>
 </body>
 </html>
