@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KviGPT 100B Investment</title>
-    <style>body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DALL-E 3 Generator</title>
+  <style>
+    body {
         margin: 0;
         padding: 0;
         font-family: 'Arial', sans-serif;
     }
-    
+
     .container {
         display: flex;
         flex-direction: column;
@@ -20,48 +21,54 @@
         color: white;
         text-align: center;
     }
-    
+
     .header {
         margin-bottom: 20px;
     }
-    
+
     .header h1 {
         font-size: 2em;
         margin-bottom: 10px;
     }
-    
+
     .content p {
         margin-bottom: 20px;
     }
-    
-    .invest-button {
+
+    button {
         background-color: rgba(0, 0, 255, 0.5);
         color: white;
         border: none;
-        padding: 15px 30px;
+        padding: 10px 20px;
         text-transform: uppercase;
         font-weight: bold;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
-    
-    .invest-button:hover {
+
+    button:hover {
         background-color: rgba(0, 0, 255, 0.8);
-    }</style>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>Telegram.WebApp.ready();</script>
+    }
+
+    input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Invest in KviGPT 100B</h1>
-            <p>The future of AI is here. Invest in the next generation of powerful AI tools.</p>
-        </div>
-        <div class="content">
-            <p>Invest your TON and be a part of the AI revolution.</p>
-            <button class="invest-button" onclick="Telegram.WebApp.openLink('https://t.me/xrocket?start=inv_zMIzD0mzKMc1tsw')">Invest Now</button>
-        </div>
-    </div>
+  <div class="container">
+    <h1>DALL-E 3 Image Generator</h1>
+    <p>Generate stunning images from text prompts.</p>
+    <iframe
+        src="https://ehristoforu-dalle-3-xl-lora-v2.hf.space"
+        frameborder="0"
+        width="450"
+        height="650">
+    </iframe>
+  </div>
 </body>
 </html>
